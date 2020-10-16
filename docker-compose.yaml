@@ -9,11 +9,11 @@ services:
       - nameservice
   nameservice:
     hostname: nameservice
-    build: ./name-service
+    build: ./nameservice
     ports:
       - "8000:8000"
   passwordservice:
     hostname: passwordservice
-    build: ./password-service
+    build: ./passwordservice
     ports:
       - "8001:8001"
