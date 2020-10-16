@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  ui:
+    hostname: frontend
+    build: ./frontend
+    ports:
+      - "80:80"
+    links:
+      - nameservice
+  nameservice:
+    hostname: nameservice
+    build: ./name-service
+    ports:
+      - "8000:8000"
+  passwordservice:
+    hostname: passwordservice
+    build: ./password-service
+    ports:
+      - "8001:8001"

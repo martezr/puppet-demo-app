@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Puppet Demo App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css" >
+  <link rel="icon" href="/static/Puppet-Favicon.png" type="image/png" sizes="16x16">
+  <style>
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 64px;
+  }
+
+  p {
+    color: white;
+    font-family: verdana;
+    font-size: 24px;
+  }
+
+  button {
+    border: none;
+    background-color:#ffae1a;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  </style>
+  <script>
+    function myFunction(){
+      location.reload(true);
+    }
+  </script>
+</head>
+
+<body style="background-color:black; height: 100vh;">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <div style="width: 100%; height: 100vh;">
+    <div style="width: 50%; height: 100vh; float: left; "> 
+      <img src="Puppet-Logo-Amber-White-lg.png" alt="Trulli" width="80%" height="auto" style="margin-top: 30%; margin-left: 5%;">
+    </div>
+    <div style="margin-left: 50%; height: 100vh; color: white; ">
+      <div style="position: absolute; margin-top: 15%; margin-left: 5%;">
+        <h1 id="generated-name" className="generated-name">{{ name }}</h1>
+        <p>Name Service</p>
+        <h1 id="generated-password" className="generated-password">{{ password }}</h1>
+        <p>Password Service</p>
+        <button type="button" onclick="myFunction()">Generate</button>
+
+      </div>
+
+    </div>
+</div>
+</body>
+</html>
