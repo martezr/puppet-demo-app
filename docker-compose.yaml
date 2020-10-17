@@ -2,18 +2,18 @@ version: "3.8"
 services:
   ui:
     hostname: frontend
-    build: ./frontend
+    image: martezr/puppet-demo-frontend
     ports:
       - "80:80"
     links:
       - nameservice
   nameservice:
     hostname: nameservice
-    build: ./nameservice
+    image: martezr/puppet-demo-name
     ports:
       - "8000:8000"
   passwordservice:
     hostname: passwordservice
-    build: ./passwordservice
+    image: martezr/puppet-demo-password
     ports:
       - "8001:8001"
