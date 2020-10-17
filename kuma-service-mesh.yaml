@@ -1,0 +1,50 @@
+apiVersion: kuma.io/v1alpha1
+kind: Mesh
+metadata:
+  name: default
+spec:
+  mtls:
+    enabledBackend: ca-1
+    backends:
+      - name: ca-1
+        type: builtin
+        dpCert:
+          rotation:
+            expiration: 1d
+        conf:
+          caCert:
+            RSAbits: 2048
+            expiration: 10y
+---
+apiVersion: kuma.io/v1alpha1
+kind: TrafficPermission
+mesh: default
+metadata:
+  namespace: default
+  name: allow-all-traffic
+spec:
+  sources:
+    - match:
+        kuma.io/service: '*'
+  destinations:
+    - match:
+        kuma.io/service: '*'
+---
+apiVersion: kuma.io/v1alpha1
+kind: HealthCheck
+metadata:
+  name: frontend-to-nameservice
+  namespace: puppetdemo
+mesh: default
+spec:
+  sources:
+  - match:
+      kuma.io/service: frontend-service_puppetdemo_svc_80
+  destinations:
+  - match:
+      kuma.io/service: nameservice_puppetdemo_svc_8000
+  conf:
+    interval: 10s
+    timeout: 2s
+    unhealthyThreshold: 3
+    healthyThreshold: 1
